@@ -26,6 +26,10 @@ input { font: inherit; }
   background: #fff7f8;
 }
 
+#preview {
+  background: #fff7f8;
+}
+
 .panel,
 .preview-section,
 .help {
