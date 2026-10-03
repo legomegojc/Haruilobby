@@ -56,31 +56,22 @@ function fitTeamName(element) {
   if (!element) return;
 
   const container = element.parentElement;
-  const maxSize = 19;
-  const minSize = 11;
 
-  // 一度初期状態に戻す
-  container.style.textAlign = "right";
-  element.style.fontSize = `${maxSize}px`;
+  // 一度1段表示へ戻して幅を測定
+  container.classList.remove("is-two-lines");
+
+  element.style.fontSize = "19px";
+  element.style.lineHeight = "32px";
   element.style.transform = "none";
-  element.style.transformOrigin = "right center";
+  element.style.whiteSpace = "nowrap";
 
-  let size = maxSize;
-
-  // まずは文字サイズを小さくして収める
-  while (
-    element.scrollWidth > container.clientWidth &&
-    size > minSize
-  ) {
-    size -= 1;
-    element.style.fontSize = `${size}px`;
-  }
-
-  // 最小サイズでも収まらない場合は左詰めへ切り替える
+  // 180pxを超えた場合は2段表示
   if (element.scrollWidth > container.clientWidth) {
-    container.style.textAlign = "left";
-    element.style.transform = "none";
-    element.style.transformOrigin = "left center";
+    container.classList.add("is-two-lines");
+
+    element.style.fontSize = "";
+    element.style.lineHeight = "";
+    element.style.whiteSpace = "";
   }
 }
 
