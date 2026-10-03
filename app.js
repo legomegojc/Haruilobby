@@ -43,9 +43,9 @@ const stateRef = ref(database, `feliceRooms/${room}/state`);
 function normalizeState(value) {
   const source = value && typeof value === "object" ? value : {};
   return {
-    alphaName: String(source.alphaName || "").slice(0, 24),
+    alphaName: String(source.alphaName || "").slice(0, 50),
     alphaScore: Math.max(0, Number(source.alphaScore) || 0),
-    betaName: String(source.betaName || "").slice(0, 24),
+    betaName: String(source.betaName || "").slice(0, 50),
     betaScore: Math.max(0, Number(source.betaScore) || 0),
     round: Math.max(0, Number(source.round) || 0),
     game: Math.max(0, Number(source.game) || 0)
@@ -190,7 +190,7 @@ function startController() {
 
   ["alphaName", "betaName"].forEach((id) => {
     $(id).addEventListener("input", (event) => {
-      state[id] = event.target.value.slice(0, 24);
+      state[id] = event.target.value.slice(0, 50);
       scheduleSave();
     });
   });
