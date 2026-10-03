@@ -51,9 +51,11 @@ function normalizeState(value) {
     game: Math.max(0, Number(source.game) || 0)
   };
 }
+
 function fitTeamName(element) {
   if (!element) return;
 
+  const container = element.parentElement;
   const maxSize = 19;
   const minSize = 11;
 
@@ -63,20 +65,22 @@ function fitTeamName(element) {
   let size = maxSize;
 
   while (
-    element.scrollWidth > element.clientWidth &&
+    element.scrollWidth > container.clientWidth &&
     size > minSize
   ) {
     size -= 1;
     element.style.fontSize = `${size}px`;
   }
 
-  if (element.scrollWidth > element.clientWidth) {
-    const scale = element.clientWidth / element.scrollWidth;
+  if (element.scrollWidth > container.clientWidth) {
+    const scale =
+      container.clientWidth / element.scrollWidth;
 
     element.style.transformOrigin = "right center";
     element.style.transform = `scaleX(${scale})`;
   }
 }
+
 function startOverlay() {
   const overlay = document.getElementById("overlay");
 
