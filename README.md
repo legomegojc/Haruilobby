@@ -1,6 +1,6 @@
 # Felice Haruiro OBSオーバーレイ
 
-PLP-CUPと同じFirebaseプロジェクトを利用しつつ、データは `feliceRooms` へ分離して保存します。既存のPLP-CUPの表示内容には干渉しません。
+専用Firebaseプロジェクト `haruilobby` を使用し、データは `feliceRooms` へ保存します。既存PLP-CUPとはFirebase自体が別なので、表示内容には干渉しません。
 
 ## 機能
 
@@ -13,9 +13,9 @@ PLP-CUPと同じFirebaseプロジェクトを利用しつつ、データは `fel
 
 ## Firebase設定
 
-Realtime Databaseの「ルール」に `database.rules.json` の内容を貼り付けて公開してください。このファイルには既存PLP-CUP用の `rooms` と、新規オーバーレイ用の `feliceRooms` の両方が含まれます。
+Realtime Databaseの「ルール」に `database.rules.json` の内容を貼り付けて公開してください。
 
-Authenticationでは、既存PLP-CUPと同じメールアドレス／パスワードを使用できます。
+Authenticationの「ログイン方法」でメール／パスワードを有効にし、「ユーザー」から操作担当者のアカウントを登録してください。ログイン用パスワードをGitHub内のファイルへ書く必要はありません。
 
 ## GitHub Pages
 
