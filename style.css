@@ -22,6 +22,10 @@ input { font: inherit; }
   padding: 28px 0 40px;
 }
 
+.preview-wrap {
+  background: #fff7f8;
+}
+
 .panel,
 .preview-section,
 .help {
