@@ -29,20 +29,46 @@ body {
 
 /* 左上パネル：上段α、下段β。チーム名はスコアの手前で右揃え。 */
 .team-name {
-  left: 35px;
+  left: 25px;
   width: 180px;
   height: 32px;
 
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
   overflow: hidden;
-  font-size: 19px;
-  line-height: 32px;
   text-align: right;
-  white-space: nowrap;
 }
 
 .team-name-text {
-  display: inline-block;
+  display: block;
+  max-width: 100%;
+
+  font-size: 19px;
+  line-height: 32px;
   white-space: nowrap;
+}
+
+/* 2段表示用の設定 */
+.team-name.is-two-lines {
+  align-items: center;
+}
+
+.team-name.is-two-lines .team-name-text {
+  display: -webkit-box;
+  max-width: 100%;
+
+  overflow: hidden;
+  white-space: normal;
+
+  font-size: 14px;
+  line-height: 15px;
+  text-align: right;
+  overflow-wrap: anywhere;
+
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .alpha-name { top: 187px; }
