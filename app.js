@@ -13,13 +13,13 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-database.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDvabzuuYSQ0HB0l7iDgCHiIKAzN8-B6y8",
-  authDomain: "polpo-846d6.firebaseapp.com",
-  databaseURL: "https://polpo-846d6-default-rtdb.firebaseio.com",
-  projectId: "polpo-846d6",
-  storageBucket: "polpo-846d6.firebasestorage.app",
-  messagingSenderId: "380666503261",
-  appId: "1:380666503261:web:f1386130f3d7d699b2adb4"
+  apiKey: "AIzaSyCMPaQu0F8_BKOPQ0xXvxwhonojn6KCa1U",
+  authDomain: "haruilobby.firebaseapp.com",
+  databaseURL: "https://haruilobby-default-rtdb.firebaseio.com",
+  projectId: "haruilobby",
+  storageBucket: "haruilobby.firebasestorage.app",
+  messagingSenderId: "737231927354",
+  appId: "1:737231927354:web:cbd90696fedcd754fbdd03"
 };
 
 const defaults = {
