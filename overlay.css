@@ -52,7 +52,8 @@ body {
 
 /* 2段表示用の設定 */
 .team-name.is-two-lines {
-  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
 }
 
 .team-name.is-two-lines .team-name-text {
@@ -61,11 +62,11 @@ body {
 
   overflow: hidden;
   white-space: normal;
+  overflow-wrap: anywhere;
 
   font-size: 14px;
-  line-height: 15px;
-  text-align: right;
-  overflow-wrap: anywhere;
+  line-height: 12px;
+  text-align: left;
 
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
