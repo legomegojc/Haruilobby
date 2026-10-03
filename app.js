@@ -59,11 +59,15 @@ function fitTeamName(element) {
   const maxSize = 19;
   const minSize = 11;
 
+  // 一度初期状態に戻す
+  container.style.textAlign = "right";
   element.style.fontSize = `${maxSize}px`;
   element.style.transform = "none";
+  element.style.transformOrigin = "right center";
 
   let size = maxSize;
 
+  // まずは文字サイズを小さくして収める
   while (
     element.scrollWidth > container.clientWidth &&
     size > minSize
@@ -72,12 +76,11 @@ function fitTeamName(element) {
     element.style.fontSize = `${size}px`;
   }
 
+  // 最小サイズでも収まらない場合は左詰めへ切り替える
   if (element.scrollWidth > container.clientWidth) {
-    const scale =
-      container.clientWidth / element.scrollWidth;
-
-    element.style.transformOrigin = "right center";
-    element.style.transform = `scaleX(${scale})`;
+    container.style.textAlign = "left";
+    element.style.transform = "none";
+    element.style.transformOrigin = "left center";
   }
 }
 
