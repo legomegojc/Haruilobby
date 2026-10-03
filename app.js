@@ -51,7 +51,32 @@ function normalizeState(value) {
     game: Math.max(0, Number(source.game) || 0)
   };
 }
+function fitTeamName(element) {
+  if (!element) return;
 
+  const maxSize = 19;
+  const minSize = 11;
+
+  element.style.fontSize = `${maxSize}px`;
+  element.style.transform = "none";
+
+  let size = maxSize;
+
+  while (
+    element.scrollWidth > element.clientWidth &&
+    size > minSize
+  ) {
+    size -= 1;
+    element.style.fontSize = `${size}px`;
+  }
+
+  if (element.scrollWidth > element.clientWidth) {
+    const scale = element.clientWidth / element.scrollWidth;
+
+    element.style.transformOrigin = "right center";
+    element.style.transform = `scaleX(${scale})`;
+  }
+}
 function startOverlay() {
   const overlay = document.getElementById("overlay");
 
@@ -80,7 +105,15 @@ function startOverlay() {
   const draw = (state) => {
     Object.entries(ids).forEach(([key, id]) => {
       const element = document.getElementById(id);
-      if (element) element.textContent = state[key];
+
+      if (element) {
+        element.textContent = state[key];
+      }
+    });
+
+    requestAnimationFrame(() => {
+      fitTeamName(document.getElementById("ovAlphaName"));
+      fitTeamName(document.getElementById("ovBetaName"));
     });
   };
 
