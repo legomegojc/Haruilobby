@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Felice Haruiro オーバーレイ操作</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="wrap">
+    <section class="panel">
+      <h1>Felice Haruiro オーバーレイ操作</h1>
+
+      <div class="auth-box">
+        <div class="auth-fields">
+          <label>メールアドレス
+            <input id="email" type="email" autocomplete="username" placeholder="Firebaseに登録したメールアドレス">
+          </label>
+          <label>パスワード
+            <input id="password" type="password" autocomplete="current-password" placeholder="パスワード">
+          </label>
+        </div>
+        <div class="auth-actions">
+          <button id="login" type="button">ログイン</button>
+          <button id="logout" class="secondary" type="button" hidden>ログアウト</button>
+          <span id="authStatus" class="status" role="status">未ログイン</span>
+        </div>
+      </div>
+
+      <p class="room-line">同期ルーム：<strong id="roomName">felice-haruiro</strong></p>
+
+      <fieldset id="controls" disabled>
+        <div class="grid">
+          <div class="field team-field alpha-field">
+            <label for="alphaName">α チーム名</label>
+            <input id="alphaName" type="text" maxlength="24" placeholder="自由入力">
+          </div>
+
+          <div class="field">
+            <label>α SET SCORE</label>
+            <div class="step">
+              <button data-step="alphaScore" data-delta="-1" type="button">−</button>
+              <output id="alphaScoreOut">0</output>
+              <button data-step="alphaScore" data-delta="1" type="button">＋</button>
+            </div>
+          </div>
+
+          <div class="field team-field beta-field">
+            <label for="betaName">β チーム名</label>
+            <input id="betaName" type="text" maxlength="24" placeholder="自由入力">
+          </div>
+
+          <div class="field">
+            <label>β SET SCORE</label>
+            <div class="step">
+              <button data-step="betaScore" data-delta="-1" type="button">−</button>
+              <output id="betaScoreOut">0</output>
+              <button data-step="betaScore" data-delta="1" type="button">＋</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>ROUND</label>
+            <div class="step">
+              <button data-step="round" data-delta="-1" type="button">−</button>
+              <output id="roundOut">1</output>
+              <button data-step="round" data-delta="1" type="button">＋</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>GAME</label>
+            <div class="step">
+              <button data-step="game" data-delta="-1" type="button">−</button>
+              <output id="gameOut">1</output>
+              <button data-step="game" data-delta="1" type="button">＋</button>
+            </div>
+          </div>
+        </div>
+
+        <button id="reset" class="reset" type="button">すべてリセット</button>
+      </fieldset>
+
+      <p id="saveStatus" class="save-status" role="status"></p>
+    </section>
+
+    <section class="preview-section">
+      <h2>リアルタイムプレビュー</h2>
+      <div class="preview-scale">
+        <iframe id="preview" src="overlay.html?preview=1&amp;room=felice-haruiro" title="overlay preview"></iframe>
+      </div>
+    </section>
+
+    <section class="help">
+      <h2>OBSでの使用</h2>
+      <p>ブラウザソースへ <code id="obsUrl"></code> を設定し、幅1280・高さ720にしてください。OBSでは背景透明で、文字と数字だけが表示されます。</p>
+    </section>
+  </main>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
