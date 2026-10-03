@@ -30,7 +30,7 @@ body {
 /* 左上パネル：上段α、下段β。チーム名はスコアの手前で右揃え。 */
 .team-name {
   left: 35px;
-  width: 161px;
+  width: 170px;
   height: 32px;
 
   overflow: hidden;
